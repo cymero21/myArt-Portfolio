@@ -1,0 +1,721 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding-top: 50px;
+    -webkit-text-size-adjust: 100%; /* prevent iOS from auto-scaling text */
+    text-size-adjust: 100%;
+    touch-action: manipulation;
+}
+
+nav{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.logo{
+    font-size: 2rem;
+    font-weight: 700;
+   color: var(--primary);
+    font-family: var(--firstFont);
+    text-transform: uppercase;
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    gap: 40px;
+    padding: 0 20px;
+    margin-bottom: 3rem;
+}
+.heroText{
+    max-width: 600px;
+    padding: 0 18px;
+    box-sizing: border-box;
+}
+.heroText h4{
+    font-size: 1.5em;
+    color: var(--primary);
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: var(--secondFont);
+    margin-bottom: 10px;
+}
+.heroText p{
+    font-size: 1.1rem;
+    color: var(--text);
+    line-height: 1.6;
+    font-family: var(--secondFont);
+    padding-top: 10px;
+    font-weight: 500;
+}
+.heroText .visualArtist{
+    font-size: 1.3rem;
+    color: #d99201;
+    margin-top: 15px;
+    font-family: var(--fifthFont);
+    text-transform: capitalize;
+}
+.heroText .heroText2{
+    font-size: 1.1rem;
+    color: var(--text);
+    line-height: 1.6;
+    font-family: var(--secondFont);
+    padding-top: 10px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.hero img{
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+@media (max-width: 900px){
+    .hero{
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        gap: 20px;
+        padding: 40px 20px;
+    }
+    .hero img{
+        width: 80%;
+    }
+}
+.parallax{
+    background-image: url('images/pixellate.jpg');
+    height: 250px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.parallax::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.parallax h2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    text-align: center;
+    font-family: var(--fifthFont);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+@media (max-width: 600px){
+    .parallax h2{
+        font-size: 1.8rem;
+        padding: 0 10px;
+    }
+}
+.paintings-room{
+    background-color: white;
+    padding: 30px 20px;
+}
+.paintingRoomTitle h1{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 20px 0;
+    font-family: var(--thirdFont);
+    text-align: center;
+    color: var(--primary);
+}
+.paintingRoomTitle p{
+    font-size: 1.2rem;
+    color: var(--accent);
+    font-family: var(--thirdFont);
+    padding-left: 40px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    text-align: center;
+}
+.paintingDisplay{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 20px;
+   padding: 40px;
+}
+.painting{
+    background-color: var(--background);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.painting:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.495);
+}
+.painting h3{
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-family: var(--fifthFont);
+    padding-top: 10px;
+    text-align: justify;
+}
+.painting p{
+    font-size: 1rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: 500;
+    color: var(--text);
+    text-transform: capitalize;
+    font-family: var(--secondFont);
+}
+hr{
+    border: none;
+    border-top: 1px solid var(--text);
+    margin: 10px 0;
+}
+.paintingImg{
+    height: 300px;
+    overflow: hidden;
+    object-fit: cover;
+}
+.paintingImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.paintingBtn{
+    padding: 8px 25px;
+    font-size: 1rem;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-transform: capitalize;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+.paintingBtn:hover{
+    background-color: #905a01;
+    cursor: pointer;
+}
+.seeMore{
+    margin-top: 10px;
+}
+.seeMore a{
+    text-decoration: underline;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-family: var(--secondFont);
+    font-weight: 500;
+}
+@media (max-width: 600px){
+    .paintingRoomTitle h1{
+        font-size: 2.5rem;
+        padding-left: 0;
+    }
+    .paintingRoomTitle p{
+        font-size: 1rem;
+        padding-left: 0;
+    }
+    .paintingDisplay{
+        padding: 20px;
+        grid-template-columns: 1fr;
+    }
+    .paintingImg{
+        height: 200px;
+    }
+}
+.processAndSketches{
+    background-color: var(--background);
+    padding: 30px 20px;
+}
+.processTitle h2{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    padding: 20px 0;
+    font-family: var(--fifthFont);
+    text-align: center;
+    color: var(--primary);
+}
+.processSubtext p{
+    font-size: 1.2rem;
+    color: var(--text);
+    font-family: var(--thirdFont);
+    padding-left: 40px;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    line-height: 1.6;
+}
+.processSubtext h4{
+    font-size: 1.5rem;
+    color: var(--primary);
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: var(--secondFont);
+    margin-bottom: 10px;
+}
+.painting-switch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+.painting-switch button{
+    padding: 10px 20px;
+    border: none;
+    margin: 10px 0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--firstFont);
+    background-color: var(--primary);
+    color: white;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.painting-switch button:hover{
+    background-color: #905a01;
+}
+.painting-switch button.active{
+    opacity: 1;
+    background-color: #603800;
+    font-weight: 600;
+}
+.painting.hidden{
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+@media (max-width: 600px){
+    .processTitle h2{
+        font-size: 2.2rem;
+        padding-left: 0;
+    }
+    .processSubtext p{
+        font-size: 1rem;
+        margin: 20px;
+        padding-left: 0;
+    }
+    .processSubtext h4{
+        font-size: 1.3rem;
+        text-align: center;
+    }
+}
+
+.carousel-window{
+    position: relative;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 900px;
+    overflow: hidden;
+    border: 2px solid var(--text);
+    border-radius: 10px;
+}
+.carousel-track{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+.carousel-track img{
+    width: 250px;
+    object-fit: cover;
+    height: auto;
+    flex-shrink: 0;
+}
+.carousel-window button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    border: none;
+    border-radius: 20%;
+    cursor: pointer;
+    padding: 8px 20px;
+    background: var(--primary);
+    z-index: 10;
+    color: white;
+    transition: 0.3s ease;
+}
+.carousel-window button:hover{
+    background: #905a01;
+}
+.prev{
+    left: 10px;
+}
+.next{
+    right: 10px;
+}
+@media (max-width: 600px){
+    .carousel-track img{
+        width: 150px;
+    }
+    .carousel-track{
+        padding: 30px;
+    }
+}
+.NotForSale{
+    text-align: center;
+    margin: 20px;
+}
+.NotForSale h4{
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-family: var(--firstFont);
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-transform: capitalize;
+    border: 1px solid var(--text);
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+.NotForSale h4 button{
+    padding: 8px 20px;
+    font-size: 1rem;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-transform: capitalize;
+    margin-left: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.NotForSale h4 button:hover{
+    background-color: #905a01;
+}
+.paper-painting-text h2{
+    font-size: 2.2rem;
+    color: var(--primary);
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: var(--secondFont);
+    margin-bottom: 10px;
+}
+.paper-painting-text p{
+    font-size: 1.3rem;
+    color: var(--primary);
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: var(--secondFont);
+    margin-bottom: 10px;
+}
+.hidden{
+    display: none;
+}
+.modal{
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+.modal-overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+.modal-content{
+    position: relative;
+    max-width: 800px;
+    width: 90%;
+    margin: 5vh auto;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+.modal-body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+}
+.modal-body img{
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+}
+.modal-form{
+    padding: 32px;
+}
+.modal-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.modal-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 10px;
+    background-color: rgb(228, 225, 225);
+}
+.modal-form h2{
+    font-size: 1.8rem;
+    margin-top: -40px;
+    color: var(--primary);
+    font-family: var(--fifthFont);
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.modal-form label{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    font-family: var(--secondFont);
+    text-transform: capitalize;
+}
+.modal-form input,
+.modal-form textarea{
+    padding: 10px;
+    border: 1px solid var(--text);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--secondFont);
+}
+.modal-form button{
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-transform: capitalize;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.modal-form button:hover{
+    background-color: #905a01;
+}
+@media (max-width: 700px){
+    .modal-body{
+        grid-template-columns: 1fr;
+        min-height: 700px;
+    }
+    .modal-body img{
+        height: auto;
+    }
+    .modal-content{
+        margin: 2vh auto;
+        width: 90%;
+    }
+    .NotForSale h4{
+        font-size: 1.2rem;
+    }
+}
+.image-modal{
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+}
+.image-modal-overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+.image-modal-content{
+    position: relative;
+    margin: auto;
+    max-height: 100vh;
+    background: white;
+    border-radius: 20px;
+}
+.image-modal-scroll{
+    display: grid;
+    max-height: 90vh;
+    max-width: 900px;
+    overflow-y: auto;
+    margin: auto;
+    gap: 30px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.image-modal-scroll img{
+    max-height: 90vh;
+    width: 100%;
+    display: block;
+}
+.image-modal-close{
+    position: absolute;
+    top: -10;
+    right: 20px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    color: var(--primary);
+}
+@media (max-width: 700px){
+    .image-modal-scroll{
+        grid-template-columns: 1fr;
+        min-height: 700px;
+    }
+    .image-modal-scroll img{
+        height: auto;
+    }
+    .image-modal{
+        padding: 30px;
+    }
+}
+
+.reach-contact{
+    margin: 0 auto;
+    text-align: center;
+}
+.reach-contact h4{
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: var(--fifthFont);
+    color: var(--primary);
+    padding: 20px;
+}
+.reach-contact p{
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: var(--forthFont);
+    color: var(--primary);
+    max-width: 600px;
+    margin: auto;
+    padding: 45px;
+}
+.contact p{
+    text-transform: capitalize;
+    font-family: var(--fifthFont);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.reach a{
+    color: black;
+    margin: 0 10px;
+    font-size: 30px;
+    transition: color 0.3s ease;
+    font-weight: 700;
+    border: 2px solid var(--primary);
+    padding: 10px;
+    border-radius: 10px;
+}
+.social-media a:hover{
+    color: #ddd;
+}
+.fa-facebook-f{
+    color: blue;
+    transition: color 0.3s ease;
+}
+.fa-facebook-f:hover{
+    color: rgb(50, 129, 233);
+}
+.fa-instagram{
+    transition: color 0.3s ease;
+    color: #962FBF;
+}
+.fa-instagram:hover{
+    color: rgb(193, 53, 132);
+}
+.fa-tiktok{
+    transition: color 0.3s ease;
+    color: #FF0050;
+}
+.fa-tiktok:hover{
+    color: black;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 700px;
+    margin: auto;
+}
+form label{
+    font-size: 20px;
+    font-family: var(--firstFont);
+    font-weight: 500;
+    text-align: justify;
+}
+form input, form textarea{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    resize: vertical;
+}
+form button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: white;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+form button:hover{
+    background-color: var(--accent);
+}
+@media (max-width: 700px){
+    .reach-contact h4{
+        font-size: 1.5rem;
+    }
+    .reach-contact p{
+        font-size: 1.2rem;
+    }
+    .contact p{
+        font-size: 1.2rem;
+    }
+}
+
+.footer{
+    text-align: center;
+    padding: 20px;
+    background-color: var(--veryDark-green);
+}
+.footer p{
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: white;
+    font-family: var(--firstFont);
+}
