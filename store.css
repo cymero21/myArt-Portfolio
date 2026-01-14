@@ -480,10 +480,11 @@ hr{
     right: 10px;
     background: none;
     border: none;
-    font-size: 3rem;
+    font-size: 2rem;
     cursor: pointer;
+    color: black;
     padding: 5px 12px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: rgb(228, 225, 225);
 }
 .modal-form h2{
