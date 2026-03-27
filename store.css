@@ -157,6 +157,15 @@ nav{
     text-transform: capitalize;
     text-align: center;
 }
+.paintingRoomTitle .categories{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    font-family: var(--secondFont);
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    text-align: center;
+}
 .paintingDisplay{
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
