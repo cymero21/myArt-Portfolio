@@ -2,6 +2,8 @@
 A personal art store and portfolio site 
 an entrance page leading into a gallery of paintings and sketches, available and inquiry-ready for sale.
 
+live site -- https://ayodaniel.netlify.app/
+
 What it does
 
 --A landing "entrance" page (click through to enter)
